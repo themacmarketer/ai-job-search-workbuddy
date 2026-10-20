@@ -12,9 +12,18 @@ instructions on the expected format and how to convert from Excel.
 
 Usage:
     python salary_lookup.py "Company Name"
-    python salary_lookup.py "Company Name" --city "København"
+    python salary_lookup.py "Company Name" --city "Singapore"
     python salary_lookup.py "Company Name" --json
     python salary_lookup.py --list-all
+
+Singapore note: this tool is for a user-supplied index-style dataset (a Glassdoor
+export, a union or industry survey, a recruiter's benchmark table). For Singapore,
+live data is usually a better starting point and needs no file at all - every
+MyCareersFuture posting declares a monthly gross SGD range, so
+`mycareersfuture-search ... --jobage 30 --limit 100 --format json` plus a median
+of the range midpoints gives a real market benchmark. See
+04-job-evaluation.md Method A. Use this tool when you have a curated dataset
+that beats that, e.g. company-level figures.
 """
 
 import json
@@ -27,19 +36,30 @@ from pathlib import Path
 
 DATA_FILE = Path(__file__).parent / "salary_data.json"
 
-# Common Danish <-> anglicized spelling variants
+# Common Danish <-> anglicized spelling variants. Retained from the upstream
+# template because they are harmless on non-Danish names, and they still help
+# when a Singapore dataset contains a Nordic parent company (e.g. Maersk,
+# Carlsberg, Orsted) whose name carries an accented character.
 SPELLING_VARIANTS = {
     "ø": "o", "æ": "ae", "å": "aa",
     "ö": "o", "ä": "ae", "ü": "u",
 }
 
-# Legal suffixes and noise to strip when matching company names
+# Legal suffixes and noise to strip when matching company names.
+# LOCALISED: Singapore entities are almost always "Pte Ltd" / "Pte. Ltd." or an
+# LLP. Malaysia's "Sdn Bhd" appears when a Singapore dataset includes regional
+# entities. Danish forms are kept so an inherited dataset still matches.
 STRIP_PATTERNS = [
+    # Singapore / Malaysia
+    r"\bpte\.?\s*ltd\.?\b", r"\bprivate\s+limited\b", r"\bl\.?l\.?p\.?\b",
+    r"\bsdn\.?\s*bhd\.?\b", r"\bpte\b",
+    # Danish (upstream template)
     r"\ba/s\b", r"\baps\b", r"\bi/s\b", r"\bp/s\b", r"\bk/s\b",
     r"\bivs\b", r"\bamba\b", r"\ba\.m\.b\.a\.?\b",
     r"\(vg\)", r"\(.*?\)",  # (VG) and other parentheticals
     r"\bdanmark\b", r"\bdenmark\b", r"\bscandinavia\b", r"\bnordic\b",
-    r"\bgroup\b", r"\bholding\b",
+    r"\bsingapore\b",
+    r"\bgroup\b", r"\bholding\b", r"\bholdings\b",
     r",\s*.*$",  # everything after comma (sub-entities)
 ]
 

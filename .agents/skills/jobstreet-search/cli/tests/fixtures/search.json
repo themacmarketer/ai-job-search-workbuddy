@@ -1,0 +1,415 @@
+{
+  "data": [
+    {
+      "advertiser": {
+        "id": "60482551",
+        "description": "Singapore Exchange Limited"
+      },
+      "bulletPoints": [],
+      "branding": {},
+      "classifications": [
+        {
+          "classification": {
+            "id": "6281",
+            "description": "Information & Communication Technology"
+          },
+          "subclassification": {
+            "id": "6290",
+            "description": "Engineering - Software"
+          }
+        }
+      ],
+      "companyName": "Singapore Exchange",
+      "companyProfileStructuredDataId": 368703,
+      "displayType": "standard",
+      "employer": {
+        "id": "368703",
+        "name": "Singapore Exchange",
+        "companyId": "168551829115368",
+        "companyUrl": "https://sg.jobstreet.com/companies/singapore-exchange-168551829115368"
+      },
+      "id": "95373170",
+      "isFeatured": false,
+      "listingDate": "2026-10-20T03:49:44Z",
+      "listingDateDisplay": "24m ago",
+      "locations": [
+        {
+          "label": "Singapore",
+          "countryCode": "SG",
+          "seoHierarchy": [
+            {
+              "contextualName": "Singapore"
+            }
+          ]
+        }
+      ],
+      "roleId": "software-engineer",
+      "salaryLabel": "",
+      "solMetadata": {
+        "searchRequestToken": "a41e7cea-2794-4068-b034-73c1a31224a6",
+        "token": "0~a41e7cea-2794-4068-b034-73c1a31224a6",
+        "jobId": "95373170",
+        "section": "MAIN",
+        "sectionRank": 1,
+        "jobAdType": "ORGANIC",
+        "tags": {
+          "mordor__flights": "mordor_1162",
+          "mordor__flight_retrieval_and_relevance_ranking": "mordor_1162",
+          "mordor__flight_performance_signal": "mordor_1141",
+          "mordor__flight_performance": "mordor_1142",
+          "mordor__flight_candidate_fit_plugin": "mordor_1157",
+          "mordor__s": "0"
+        }
+      },
+      "tags": [
+        {
+          "type": "EARLY_APPLICANT",
+          "label": "Be an early applicant"
+        }
+      ],
+      "teaser": "The Assistant VP, Software Engineering is a hands-on technical leader and strong individual contributor responsible for designing, building, and...",
+      "title": "AVP, Software Engineer",
+      "tracking": "ewogICJ0b2tlbiI6ICJkZTY3MTQzZi0xYzcwLTQxOTctYjlmNC01N2U5MTI3NTJmOGFfMSIKfQ==",
+      "workTypes": [
+        "Full time"
+      ],
+      "workArrangements": {
+        "data": [
+          {
+            "id": "1",
+            "label": {
+              "text": "On-site"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "advertiser": {
+        "id": "63914813",
+        "description": "ST Semiconductor Testing Pte Ltd"
+      },
+      "bulletPoints": [],
+      "branding": {},
+      "classifications": [
+        {
+          "classification": {
+            "id": "6281",
+            "description": "Information & Communication Technology"
+          },
+          "subclassification": {
+            "id": "6290",
+            "description": "Engineering - Software"
+          }
+        }
+      ],
+      "companyProfileStructuredDataId": 0,
+      "displayType": "standard",
+      "id": "95372516",
+      "isFeatured": false,
+      "listingDate": "2026-10-20T03:40:17Z",
+      "listingDateDisplay": "34m ago",
+      "locations": [
+        {
+          "label": "Macpherson, Central Region",
+          "countryCode": "SG",
+          "seoHierarchy": [
+            {
+              "contextualName": "Macpherson Central Region"
+            },
+            {
+              "contextualName": "Central Region"
+            }
+          ]
+        }
+      ],
+      "roleId": "software-engineer",
+      "salaryLabel": "$5,000 \u2013 $6,000 per month",
+      "solMetadata": {
+        "searchRequestToken": "a41e7cea-2794-4068-b034-73c1a31224a6",
+        "token": "0~a41e7cea-2794-4068-b034-73c1a31224a6",
+        "jobId": "95372516",
+        "section": "MAIN",
+        "sectionRank": 2,
+        "jobAdType": "ORGANIC",
+        "tags": {
+          "mordor__flights": "mordor_1162",
+          "mordor__flight_retrieval_and_relevance_ranking": "mordor_1162",
+          "mordor__flight_performance_signal": "mordor_1141",
+          "mordor__flight_performance": "mordor_1142",
+          "mordor__flight_candidate_fit_plugin": "mordor_1157",
+          "mordor__s": "0"
+        }
+      },
+      "tags": [
+        {
+          "type": "EARLY_APPLICANT",
+          "label": "Be an early applicant"
+        }
+      ],
+      "teaser": "Develop and maintain handler control software in C# and C++ for semiconductor industrial equipment.",
+      "title": "Software Engineer",
+      "tracking": "ewogICJ0b2tlbiI6ICJkZTY3MTQzZi0xYzcwLTQxOTctYjlmNC01N2U5MTI3NTJmOGFfMiIKfQ==",
+      "workTypes": [
+        "Full time"
+      ],
+      "workArrangements": {
+        "data": [
+          {
+            "id": "1",
+            "label": {
+              "text": "On-site"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "advertiser": {
+        "id": "61941084",
+        "description": "Keywords Studios"
+      },
+      "bulletPoints": [],
+      "branding": {},
+      "classifications": [
+        {
+          "classification": {
+            "id": "6281",
+            "description": "Information & Communication Technology"
+          },
+          "subclassification": {
+            "id": "6287",
+            "description": "Developers/Programmers"
+          }
+        }
+      ],
+      "companyName": "Keywords Studios",
+      "companyProfileStructuredDataId": 508292,
+      "displayType": "standard",
+      "employer": {
+        "id": "508292",
+        "name": "Keywords Studios"
+      },
+      "id": "95368646",
+      "isFeatured": false,
+      "listingDate": "2026-10-20T02:04:36Z",
+      "listingDateDisplay": "2h ago",
+      "locations": [
+        {
+          "label": "Singapore",
+          "countryCode": "SG",
+          "seoHierarchy": [
+            {
+              "contextualName": "Singapore"
+            }
+          ]
+        }
+      ],
+      "roleId": "software-engineer",
+      "salaryLabel": "",
+      "solMetadata": {
+        "searchRequestToken": "a41e7cea-2794-4068-b034-73c1a31224a6",
+        "token": "0~a41e7cea-2794-4068-b034-73c1a31224a6",
+        "jobId": "95368646",
+        "section": "MAIN",
+        "sectionRank": 3,
+        "jobAdType": "ORGANIC",
+        "tags": {
+          "mordor__flights": "mordor_1162",
+          "mordor__flight_retrieval_and_relevance_ranking": "mordor_1162",
+          "mordor__flight_performance_signal": "mordor_1141",
+          "mordor__flight_performance": "mordor_1142",
+          "mordor__flight_candidate_fit_plugin": "mordor_1157",
+          "mordor__s": "0"
+        }
+      },
+      "tags": [
+        {
+          "type": "EARLY_APPLICANT",
+          "label": "Be an early applicant"
+        }
+      ],
+      "teaser": "We are looking for enthusiastic and self-motivated Software Engineers to join our Singapore-based team, working on an exciting, new, and...",
+      "title": "Software Engineer",
+      "tracking": "ewogICJ0b2tlbiI6ICJkZTY3MTQzZi0xYzcwLTQxOTctYjlmNC01N2U5MTI3NTJmOGFfMyIKfQ==",
+      "workTypes": [
+        "Full time"
+      ],
+      "workArrangements": {
+        "data": [
+          {
+            "id": "1",
+            "label": {
+              "text": "On-site"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "advertiser": {
+        "id": "63914813",
+        "description": "ST Semiconductor Testing Pte Ltd"
+      },
+      "bulletPoints": [],
+      "branding": {},
+      "classifications": [
+        {
+          "classification": {
+            "id": "6281",
+            "description": "Information & Communication Technology"
+          },
+          "subclassification": {
+            "id": "6290",
+            "description": "Engineering - Software"
+          }
+        }
+      ],
+      "companyProfileStructuredDataId": 0,
+      "displayType": "standard",
+      "id": "95372909",
+      "isFeatured": false,
+      "listingDate": "2026-10-20T03:49:28Z",
+      "listingDateDisplay": "25m ago",
+      "locations": [
+        {
+          "label": "Macpherson, Central Region",
+          "countryCode": "SG",
+          "seoHierarchy": [
+            {
+              "contextualName": "Macpherson Central Region"
+            },
+            {
+              "contextualName": "Central Region"
+            }
+          ]
+        }
+      ],
+      "roleId": "software-test-engineer_2",
+      "salaryLabel": "$4,500 \u2013 $6,000 per month",
+      "solMetadata": {
+        "searchRequestToken": "a41e7cea-2794-4068-b034-73c1a31224a6",
+        "token": "0~a41e7cea-2794-4068-b034-73c1a31224a6",
+        "jobId": "95372909",
+        "section": "MAIN",
+        "sectionRank": 4,
+        "jobAdType": "ORGANIC",
+        "tags": {
+          "mordor__flights": "mordor_1162",
+          "mordor__flight_retrieval_and_relevance_ranking": "mordor_1162",
+          "mordor__flight_performance_signal": "mordor_1141",
+          "mordor__flight_performance": "mordor_1142",
+          "mordor__flight_candidate_fit_plugin": "mordor_1157",
+          "mordor__s": "0"
+        }
+      },
+      "tags": [
+        {
+          "type": "EARLY_APPLICANT",
+          "label": "Be an early applicant"
+        }
+      ],
+      "teaser": "Develop and maintain test automation software for semiconductor optoelectronic test equipment in C# and C++.",
+      "title": "Test Software Engineer",
+      "tracking": "ewogICJ0b2tlbiI6ICJkZTY3MTQzZi0xYzcwLTQxOTctYjlmNC01N2U5MTI3NTJmOGFfNCIKfQ==",
+      "workTypes": [
+        "Full time"
+      ],
+      "workArrangements": {
+        "data": [
+          {
+            "id": "1",
+            "label": {
+              "text": "On-site"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "advertiser": {
+        "id": "60482551",
+        "description": "Singapore Exchange Limited"
+      },
+      "bulletPoints": [],
+      "branding": {},
+      "classifications": [
+        {
+          "classification": {
+            "id": "6281",
+            "description": "Information & Communication Technology"
+          },
+          "subclassification": {
+            "id": "6287",
+            "description": "Developers/Programmers"
+          }
+        }
+      ],
+      "companyName": "Singapore Exchange",
+      "companyProfileStructuredDataId": 368703,
+      "displayType": "standard",
+      "employer": {
+        "id": "368703",
+        "name": "Singapore Exchange",
+        "companyId": "168551829115368",
+        "companyUrl": "https://sg.jobstreet.com/companies/singapore-exchange-168551829115368"
+      },
+      "id": "95373177",
+      "isFeatured": false,
+      "listingDate": "2026-10-20T03:49:38Z",
+      "listingDateDisplay": "24m ago",
+      "locations": [
+        {
+          "label": "Singapore",
+          "countryCode": "SG",
+          "seoHierarchy": [
+            {
+              "contextualName": "Singapore"
+            }
+          ]
+        }
+      ],
+      "roleId": "software-engineer",
+      "salaryLabel": "",
+      "solMetadata": {
+        "searchRequestToken": "a41e7cea-2794-4068-b034-73c1a31224a6",
+        "token": "0~a41e7cea-2794-4068-b034-73c1a31224a6",
+        "jobId": "95373177",
+        "section": "MAIN",
+        "sectionRank": 5,
+        "jobAdType": "ORGANIC",
+        "tags": {
+          "mordor__flights": "mordor_1162",
+          "mordor__flight_retrieval_and_relevance_ranking": "mordor_1162",
+          "mordor__flight_performance_signal": "mordor_1141",
+          "mordor__flight_performance": "mordor_1142",
+          "mordor__flight_candidate_fit_plugin": "mordor_1157",
+          "mordor__s": "0"
+        }
+      },
+      "tags": [
+        {
+          "type": "EARLY_APPLICANT",
+          "label": "Be an early applicant"
+        }
+      ],
+      "teaser": "Experience leading software engineering across multiple teams, platforms or business domains in a complex, high-availability, security-sensitive or...",
+      "title": "VP, Software Engineer",
+      "tracking": "ewogICJ0b2tlbiI6ICJkZTY3MTQzZi0xYzcwLTQxOTctYjlmNC01N2U5MTI3NTJmOGFfNSIKfQ==",
+      "workTypes": [
+        "Full time"
+      ],
+      "workArrangements": {
+        "data": [
+          {
+            "id": "1",
+            "label": {
+              "text": "On-site"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "totalCount": 1133
+}

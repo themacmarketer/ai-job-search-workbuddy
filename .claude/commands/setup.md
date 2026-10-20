@@ -270,10 +270,15 @@ Walk through each section conversationally. Ask questions naturally, not as a fo
 ### Section 1: Identity & Contact
 Ask about:
 - Full name
-- Location (city, country)
-- Phone, email, LinkedIn, GitHub
-- What languages they work in professionally, and roughly what level in each (native, fluent, conversational, a CEFR letter like B2 - whatever's natural for them to describe, doesn't need to be precise). Worth explaining why: a posting requiring a language they don't list at all gets auto-excluded later by the Language Gate, while one asking for a higher level in a language they do list gets flagged for their own judgment instead of silently passed or rejected - so it's worth being honest here rather than optimistic.
-- Current employment status
+- Location (Singapore — ask which area they live in, since commute time drives the location filter)
+- Phone (in `+65` form), email, LinkedIn, GitHub
+- **Work-pass status.** Ask directly and record it: `Singapore Citizen`, `Singapore PR`,
+  `Employment Pass holder`, `S Pass holder`, `Dependant's Pass / LTVP`, or
+  `Requires sponsorship`. This is the single most consequential fact in a Singapore job
+  search — it drives the eligibility gate in `04-job-evaluation.md`, and without it every
+  evaluation is guesswork. Ask about any pass expiry date too.
+- What languages they work in professionally, and roughly what level in each (native, fluent, conversational, a CEFR letter like B2 - whatever's natural for them to describe, doesn't need to be precise). Worth explaining why: a posting requiring a language they don't list at all gets auto-excluded later by the Language Gate, while one asking for a higher level in a language they do list gets flagged for their own judgment instead of silently passed or rejected - so it's worth being honest here rather than optimistic. In Singapore, English is the default working language; Mandarin, Malay and Tamil matter only where a posting makes them a condition.
+- Current employment status, and notice period (one month is the Singapore norm)
 - Family/commute constraints (if any)
 
 ### Section 2: Education
@@ -338,8 +343,8 @@ Ask about:
 - **Key skills as search terms:** "Which of your skills are most likely to appear in job postings?" Pick 3-5 that are distinctive and searchable.
 - **Target companies (optional):** "Are there specific companies you'd like to monitor for openings?"
 - **Geographic scope:** "Which cities or regions should I search in? How far are you willing to commute?" Use this to define the location filter tiers (ideal, acceptable, borderline, too far).
-- **Job portals:** "The framework ships country-agnostic search CLIs (`linkedin-search`, `freehire-search`, enabled by default) plus Danish portal demos (Jobindex, Jobbank, Jobdanmark, Jobnet) that ship **disabled**. `/scrape` auto-discovers whatever portal skills are installed under `.agents/skills/` and skips any with `enabled: false`. Which portals fit your market?" **Then act on the answer:** if the user's market is Denmark (or they ask for the Danish boards), edit each of the four Danish `SKILL.md` files and set `enabled: true` in the frontmatter; otherwise leave them disabled and say so - they cost nothing while disabled and can be enabled later by flipping the flag. If the user needs a local board that is not shipped, guide them to `/add-portal` (market-specific skills live in their fork). WebSearch/`site:` queries remain the fallback for portals without a CLI skill.
-- **CV language:** "Should your CVs be written in English (the default, accepted in most markets), or in your market's language?" Record the answer as a `CV language: <language>` line in CLAUDE.md's Identity section. Cover letters always match each posting's language automatically; this setting governs the CV only. If the user is unsure, keep English and note they can re-run `/setup --section search` to change it.
+- **Job portals:** "This workspace is localised for **Singapore**. `/scrape` auto-discovers every portal skill under `.agents/skills/` and skips any with `enabled: false`. Currently enabled: `mycareersfuture-search` (the government portal, and the primary source), `linkedin-search` and `freehire-search`. Also installed but **disabled**: `jobstreet-search` (Singapore's largest commercial board — off because its robots.txt disallows the search API) and four Danish demo portals that are irrelevant here. Do you want JobStreet turned on as well?" **Then act on the answer:** only edit `enabled:` in a `SKILL.md` frontmatter when the user explicitly asks for that portal, and never edit anything else in the file. If the user needs a board that is not shipped (Indeed SG, Glints, NodeFlair, Careers@Gov), point them at `/add-portal`; WebSearch `site:` queries in `search-queries.md` already cover those as a fallback.
+- **CV language:** Singapore CVs are in English; this is already the default and there is normally no reason to change it. Keep `CV language: English` in CLAUDE.md unless the user specifically wants otherwise. Cover letters always match each posting's language automatically; this setting governs the CV only. If the user is unsure, keep English and note they can re-run `/setup --section search` to change it.
 
 **Important:** Also suggest role types the user may not have considered, based on their skill profile. For example:
 - If they have strong Python + domain expertise: "Have you considered roles like 'Technical Consultant' or 'Solutions Engineer' in your domain?"

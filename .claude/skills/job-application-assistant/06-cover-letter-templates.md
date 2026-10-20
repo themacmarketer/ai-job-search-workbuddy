@@ -55,6 +55,53 @@ The `\lettercontent{}` macro appends `\\` to its argument. This breaks when the 
 
 The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\lettercontent{}` without the `\fontspec` block, bullets render in the default body font (Lato) and visually mismatch the rest of the letter.
 
+## Singapore market conventions — read before drafting
+
+<!-- LOCALISED: Singapore. -->
+
+### Spelling, date and salutation
+
+- **British English throughout** — `organisation`, `programme`, `specialise`, `analyse`.
+  Mixed spelling is the single most common tell that a letter was not written for this market.
+- **Date:** `20 October 2026` (day month year). `\currentdate{\today}` renders
+  `October 20, 2026` by default, which reads American. Write the date explicitly instead.
+- **Salutation:** name the person when the posting names one. Otherwise `Dear [Company] Hiring Team,`
+  is better than `Dear Sir/Madam` — Singapore's market skews informal-modern in tech and
+  formal in finance, and "Hiring Team" works in both.
+- **Closing:** `Yours sincerely,` when you named the recipient; `Kind regards,` is also
+  widely used and acceptable in Singapore business correspondence. Avoid `Yours faithfully,`
+  unless the letter opens `Dear Sir/Madam`.
+
+### Length and register
+
+- **One page, 250–300 words.** Singapore cover letters are shorter than the European norm.
+  A letter that runs to two pages is usually not read to the end.
+- **Direct, specific, no preamble.** Open with the role and the single strongest reason to
+  read on. Do not open with "I am writing to apply for…" — the subject line already says that.
+- **Evidence over adjectives.** One concrete number beats three claims of "proven track record".
+- **No em-dashes** (the template's existing rule) — in Singapore business writing this
+  reads as an AI or American stylistic import.
+
+### The two Singapore-specific facts worth including
+
+1. **Work-pass position**, when the candidate needs sponsorship or holds a pass. One
+   clause, factual, in the second paragraph:
+   `I hold an Employment Pass and can start without a new application.` or
+   `I would require Employment Pass sponsorship for this role.`
+   Recruiters screen for this early; leaving it out invites a clarifying email that many
+   will not send.
+
+2. **Notice period and availability**, if the posting or portal asks. `I can start after a
+   one-month notice period` is standard Singapore phrasing — one month is the market norm,
+   up to three for senior roles.
+
+### What to leave out
+
+- No photo, age, date of birth, marital status or NRIC — same reasoning as the CV.
+- No "I am a hardworking team player" opening. Singapore recruiters read a lot of these.
+- No salary figure unless the posting explicitly asks for one. If it does, put it in the
+  application form, not the letter, and see `08-application-forms.md` for how to frame it.
+
 ## Document Structure
 
 ```latex
@@ -76,7 +123,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     TITLE NAME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\namesection{}{\Huge{[YOUR_NAME]}}{  \href{mailto:[YOUR_EMAIL]}{[YOUR_EMAIL]} | [YOUR_PHONE] |  \urlstyle{same}\href{[YOUR_LINKEDIN_URL]}{LinkedIn}
+\namesection{}{\Huge{Raymond Chia Kok Leong}}{  \href{mailto:raymond.chia@example.com}{raymond.chia@example.com} | +65 9XXX XXXX |  \urlstyle{same}\href{https://www.linkedin.com/in/raymond-chia-kok-leong}{LinkedIn}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,7 +155,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 % doubled break triggers "! LaTeX Error: There's no line here to end."
 \closing{Kind regards,}
 
-\signature{[YOUR_NAME]}
+\signature{Raymond Chia Kok Leong}
 \end{flushright}
 \end{document}
 ```
@@ -158,7 +205,7 @@ Escape these wherever they appear in body text:
 ### Non-English Cover Letters
 - Same template structure, just write content in the posting's language
 - Adjust date format to local convention
-- Adjust closing to local convention (e.g. "Med venlig hilsen," for Danish)
+- Adjust closing to local convention (e.g. "Yours sincerely," for British/Singapore English)
 
 ## Checklist Before Finalizing
 - [ ] No em-dashes (use commas or periods instead)

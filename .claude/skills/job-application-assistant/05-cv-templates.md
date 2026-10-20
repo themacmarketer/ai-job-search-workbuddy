@@ -22,6 +22,79 @@ cd cv && lualatex -interaction=nonstopmode main_<company>_<role>.tex
 
 Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. Any page count other than 2 is a failure that must be fixed before presenting to the user.
 
+## Singapore market conventions — read before drafting
+
+<!-- LOCALISED: Singapore. These override the template defaults where they conflict. -->
+
+A Singapore CV is an English-language, two-page, skills-forward document. The European
+and North American habits this template was built around mostly carry over, but four
+things are different, and getting them wrong is visible to a Singapore recruiter.
+
+### 1. Do not put a photo, date of birth, age, marital status, nationality, religion or NRIC on the CV
+
+This is the biggest divergence from other Asian markets, and it is not just etiquette:
+
+- The **Tripartite Guidelines on Fair Employment Practices** (TAFEP) tell employers not to
+  use age, race, gender, religion, marital status, family responsibilities or disability
+  in hiring decisions, and not to ask for them in job ads.
+- **PDPA** guidance restricts the collection of NRIC numbers.
+
+A CV carrying a photo and a date of birth reads as either a regional-market template that
+was not adapted, or a candidate who expects to be screened on those attributes. Neither
+helps. Omit all of them.
+
+The one **voluntary** exception worth considering: stating work-pass status (see point 4).
+
+### 2. British spelling and Singapore conventions
+
+Singapore follows British English. Use `organisation`, `programme`, `specialise`,
+`analyse`, `centre`, `licence` (noun). A CV mixing American and British spelling looks
+unedited. Set the language in the editor and check by hand — the template's own section
+headings are already British-compatible.
+
+Date format: `Jan 2024 - Mar 2026` or `01/2024 - 03/2026`. Keep it consistent throughout,
+and keep the **ASCII single hyphen** rule from the ATS section below.
+
+### 3. Contact block: no full home address
+
+A street address adds nothing and dates the document. Put `Singapore` (or nothing) in the
+address field, and always include:
+
+- a mobile number in international form: `+65 9XXX XXXX`
+- a professional email
+- LinkedIn (near-universal in Singapore screening)
+- GitHub or portfolio where relevant to the role
+
+If you have no address to print, **delete the `\address{}{}{}` line entirely** — see the
+template comment; leaving it empty breaks the compile.
+
+### 4. Work-pass status: state it only when it helps
+
+If the candidate needs sponsorship, a CV that says nothing leaves the recruiter guessing,
+and many will assume the worst. One short line in the contact block or profile statement
+resolves it:
+
+- Citizen/PR: `Singapore Citizen` or `Singapore PR` — a genuine advantage, worth stating.
+- Pass holder: `Employment Pass holder` — states the right to work without an application.
+- Needs sponsorship: say so in the **profile statement**, not the header, and pair it with
+  the value proposition: `Seeking a role with Employment Pass sponsorship.` Recruiters who
+  cannot sponsor will filter you out either way; the ones who can will find you faster.
+
+Do not overstate this. "Requires EP sponsorship" is a fact; "open to relocation" is not
+the same thing and reads as though the candidate has not read the posting.
+
+### 5. What Singapore recruiters actually screen for
+
+- **Two pages, densely used.** One page is common for fresh graduates; for anyone with
+  more than a few years' experience, two pages is expected. The template's hard 2-page
+  rule is correct here — do not cut to one.
+- **Quantified outcomes.** Same as anywhere, but Singapore's market is full of
+  regional-HQ roles where scope numbers (headcount, revenue, markets covered) matter.
+- **Named tools and platforms.** Singapore hiring is pragmatic and keyword-driven; ATS
+  matching is literal.
+- **Regional scope is a plus.** "Covered SEA markets", "APAC remit", "liaised with teams in
+  Jakarta and Manila" signals the regional-HQ experience local employers value.
+
 ## Document Structure
 
 ```latex
@@ -59,7 +132,7 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Raymond Chia - CV},
     % Keep pdfpagemode=UseNone: this block runs after moderncv's own
     % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
     % value here would win and open every CV in fullscreen presentation mode.
@@ -69,13 +142,15 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 \usepackage{import}
 
 % Personal data
-\name{[FIRST_NAME]}{[LAST_NAME]}
+\name{Raymond}{Chia Kok Leong}
 % If you have no address to list, DELETE this whole line. \address{}{}{} fails
 % with "There's no line here to end" on every moderncv version.
-\address{[YOUR_ADDRESS]}{}{}
-\phone[mobile]{[YOUR_PHONE]}
-\email{[YOUR_EMAIL]}
-\extrainfo{\href{[YOUR_LINKEDIN_URL]}{LinkedIn}, \href{[YOUR_GITHUB_URL]}{GitHub}}
+% Singapore convention: city only, no street address.
+\address{Singapore}{}{}
+\phone[mobile]{+65 9XXX XXXX}
+\email{raymond.chia@example.com}
+% No GitHub: this persona is explicitly not a programmer. Do not add one.
+\extrainfo{\href{https://www.linkedin.com/in/raymond-chia-kok-leong}{LinkedIn}}
 
 \begin{document}
 \makecvtitle
@@ -137,11 +212,19 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 **Create 2-3 profile statement templates for your main role types:**
 
 <!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Sales Operations Manager / Commercial Excellence Lead roles:**
+> Commercial and sales operations leader with 24 years in APAC B2B distribution. Ran
+> forecasting and pipeline governance across six markets and a team of 40, cutting forecast
+> variance from 18% to 7% over three years and leading the region's CRM migration to
+> Salesforce. Now applying generative AI to the same problems — lead triage, proposal
+> drafting and pricing analysis — with the measurement discipline to show what changed.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For AI Adoption Lead (Commercial) roles:**
+> Twenty-four years running commercial operations in APAC, and currently completing the SMU
+> Academy certificate in generative AI for business growth. Not a programmer: the value I
+> bring is knowing which commercial processes are worth automating, and having the operating
+> experience to prove whether the change worked. Cut forecast variance from 18% to 7% and
+> migrated a region onto Salesforce — both by changing the process, not by buying a tool.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 
@@ -234,7 +317,7 @@ Postings and profile data arrive as plain text; the CV is LaTeX. Escape these wh
 
 Two failure modes deserve special care:
 
-- **`%` fails silently.** An unescaped `%` starts a LaTeX comment: the compile succeeds with zero errors, and everything after the `%` on that line vanishes from the PDF. `Cut inference latency by 40% and saved DKK 2M annually` renders as "Cut inference latency by 40" - the bullet keeps its impressive-looking fragment and loses the actual result. Quantified achievement bullets are exactly where the guidance steers you ("use numbers where possible"), so check every `%` in every bullet before compiling.
+- **`%` fails silently.** An unescaped `%` starts a LaTeX comment: the compile succeeds with zero errors, and everything after the `%` on that line vanishes from the PDF. `Cut inference latency by 40% and saved SGD 2M annually` renders as "Cut inference latency by 40" - the bullet keeps its impressive-looking fragment and loses the actual result. Quantified achievement bullets are exactly where the guidance steers you ("use numbers where possible"), so check every `%` in every bullet before compiling.
 - **`&` fails loudly** inside `\cventry` (alignment-tab errors, `Missing } inserted`). The compile loop catches it, but escape employer names up front rather than debugging the compile.
 
 Related trap: a bullet whose text begins with a literal `[` must be braced - `\item {[text]}` - or LaTeX parses the bracketed text as `\item`'s optional label and renders it clipped off the left page edge with a clean compile. The example CV's placeholder bullets are braced for exactly this reason.

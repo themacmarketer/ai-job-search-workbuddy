@@ -66,6 +66,84 @@ These reward **a specific situation over an adjective**. Most applicants submit 
 
 Prefer the version that **maps the candidate's problem onto the employer's problem**, where a truthful mapping exists. That is what "stand out" is actually asking for.
 
+## Singapore-specific fields — prepare these before you need them
+
+<!-- LOCALISED: Singapore. -->
+
+Singapore applications ask a small, predictable set of questions that neither the CV nor
+the cover letter covers. Having answers ready (and consistent with the CV) matters more
+here than in most markets, because the forms are short and the fields are mandatory.
+
+### MyCareersFuture screening questions
+
+MCF postings can carry employer-authored screening questions, answered in the portal
+rather than in a document. The CLI reports how many a posting has
+(`detail --format json` → `screeningQuestionCount`) so you know before you start whether
+the application is a two-minute form or a twenty-minute one.
+
+Typical shapes, and how to answer them:
+
+| Question | How to answer |
+|---|---|
+| "Do you have at least N years of experience in X?" | Answer factually against the profile. Do not round up — this is checked against the CV. |
+| "Are you a Singapore Citizen or PR?" | Answer truthfully. A "no" here is the eligibility gate in `04-job-evaluation.md` firing; do not apply around it. |
+| "What is your expected salary?" | See below. |
+| "When can you start?" | Notice period, not a wish date. |
+| Free-text "Why do you want this role?" | 80–120 words, same rules as the self-introduction field above. |
+
+### Expected salary — the field that sinks applications
+
+This is the most consequential free-text field in the Singapore market, and the one most
+often answered badly in both directions: too low and the offer anchors below market; too
+high and the application is filtered before a human reads it.
+
+**Method:**
+
+1. Build a market range first, from live data — `04-job-evaluation.md` Method A
+   (`mycareersfuture-search` with `--jobage 30 --limit 100`) gives median and p25–p75 of
+   disclosed ranges for the role.
+2. Anchor on the posting's own range where it declares one. If the posting says
+   S$6,000–8,000, an answer inside that band is safe; an answer above the top is a
+   rejection risk unless the profile clearly justifies it.
+3. Give **a range, monthly gross**, and say it is monthly gross:
+   `S$7,000 – S$8,000 per month (gross)`.
+4. Put the bottom of the range at a number you would actually accept, not at your
+   aspirational figure with a wide spread. A S$6,000–10,000 answer reads as "I have not
+   thought about this".
+5. If the posting does not disclose a range and there is no market data, say
+   `Negotiable, based on the role's scope` rather than inventing a number — but flag to
+   the user that this weakens the application.
+
+**Never** state a total-comp figure (base + AWS + bonus) in an "expected salary" field.
+Singapore employers read that field as monthly gross base, and a total-comp number looks
+either inflated or evasive.
+
+### Current salary
+
+Asked often, and awkward when the candidate is underpaid or was recently made redundant.
+Answer factually if required — misstating current salary is a reference-check failure.
+Where the field is optional, `Prefer to discuss` is acceptable; where it is mandatory,
+state the gross monthly base and let the expected figure carry the negotiation.
+
+### Notice period
+
+One month is the Singapore norm; two to three months for senior or regional roles, and
+longer in banking for controlled functions. State it as a duration (`1 month`), not a
+date, unless a start date is requested — then convert using the actual calendar.
+
+### Work pass status
+
+If asked, answer with the pass class, not a sentence: `Employment Pass`, `S Pass`,
+`Singapore PR`, `Singapore Citizen`, `Requires sponsorship`. This field is screened
+mechanically, and a prose answer can fail a dropdown match.
+
+### Consistency rule
+
+Every one of these answers must match the CV and the cover letter for the same role. The
+classic failure is a CV saying "Employment Pass holder" while the form says "requires
+sponsorship", or an expected salary above the range quoted in the letter. Check the three
+artifacts against each other before submitting.
+
 ## Output format
 
 Save to a plain `.txt` file the candidate can copy from, alongside their other application material for that employer. One file per employer, containing every field that employer asked for.

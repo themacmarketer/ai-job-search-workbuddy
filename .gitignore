@@ -53,6 +53,10 @@ Thumbs.db
 .claude/projects/
 .claude/settings.local.json
 
+# WorkBuddy agent memory. Working notes about the user's own search — never
+# published. The .workbuddy-ai/skills/ port IS tracked; only memory/ is not.
+.workbuddy-ai/memory/
+
 # Skills lock (auto-generated)
 skills-lock.json
 
@@ -86,6 +90,10 @@ documents/postings/**
 # tools/security_guards.py pins it in REQUIRED_IGNORE_RULES.
 documents/interview/**
 !documents/**/.gitkeep
+# The one deliberate exception: the fictitious sample CV that ships with this
+# fork so a new user can run /setup Path A immediately. It is a training
+# persona (see documents/cv/README.md) and contains no real personal data.
+!documents/cv/Raymond_Chia_CV.pdf
 
 # Personal job search tracking
 job_search_tracker.csv

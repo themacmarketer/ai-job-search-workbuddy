@@ -32,6 +32,12 @@ Your master CV — the most complete, unedited version of your professional reco
 
 **Supported formats:** `.pdf`, `.tex`
 
+> **The repo ships one sample CV:** `cv/Raymond_Chia_CV.pdf`. It is a **fictitious training
+> persona** created for an SMU Academy GenAI cohort — the person, employers and photo are
+> invented, the phone number is redacted and the email uses `example.com`. It exists so a new
+> user can run `/setup` (Path A) and see the whole pipeline work before putting any real data
+> into the repo. Delete it, or run `/reset`, before setting up your own profile.
+
 **What `/setup` extracts:**
 - Work experience (titles, companies, dates, bullet points)
 - Education (degrees, institutions, dates, thesis topics)

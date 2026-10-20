@@ -65,6 +65,13 @@ ALLOWED_PERMISSIONS = {
     "Bash(bun run .agents/skills/jobnet-search/cli/src/cli.ts:*)",
     "Bash(bun run .agents/skills/linkedin-search/cli/src/cli.ts:*)",
     "Bash(bun run .agents/skills/freehire-search/cli/src/cli.ts:*)",
+    # Singapore portals. MyCareersFuture is the primary source: a government
+    # service whose robots.txt permits access, with declared salary, posting and
+    # expiry dates, and a full description. JobStreet ships `enabled: false`
+    # because its robots.txt disallows /api/jobsearch/; the grant exists so that
+    # enabling it deliberately does not require editing the permission surface.
+    "Bash(bun run .agents/skills/mycareersfuture-search/cli/src/cli.ts:*)",
+    "Bash(bun run .agents/skills/jobstreet-search/cli/src/cli.ts:*)",
     "Bash(python salary_lookup.py:*)",
     "Bash(python3 salary_lookup.py:*)",
     "Bash(python tools/rank_state.py:*)",
@@ -205,6 +212,9 @@ ALLOWED_IGNORE_NEGATIONS = {
     "!cv/main_example.tex",
     "!cover_letters/cover_example.tex",
     "!documents/**/.gitkeep",
+    # The fictitious sample CV shipped so a new user can run /setup Path A
+    # immediately. Reviewed: a training persona, no real personal data.
+    "!documents/cv/Raymond_Chia_CV.pdf",
 }
 
 # Hook commands the template legitimately ships, as "<Event>:<command>" strings.

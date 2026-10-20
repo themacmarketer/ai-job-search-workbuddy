@@ -16,7 +16,7 @@
 % frozen before \moderncvcolor runs. Re-let them after. \namefont is the hook
 % every name-style macro routes through, so this also works on moderncv 2.3.1
 % (Debian/Ubuntu apt), which has no \firstnamestyle/\lastnamestyle at all.
-\renewcommand*{\namefont}{\fontsize{34}{36}\bfseries\upshape}
+\renewcommand*{\namefont}{\fontsize{28}{30}\bfseries\upshape}
 \colorlet{firstnamecolor}{color1}
 \colorlet{lastnamecolor}{color1}
 \colorlet{namecolor}{color1}
@@ -40,7 +40,7 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Raymond Chia - CV},
     % Keep pdfpagemode=UseNone: this block runs after moderncv's own
     % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
     % value here would win and open every CV in fullscreen presentation mode.
@@ -50,13 +50,15 @@
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
+\name{Raymond}{Chia Kok Leong}
 % If you have no address to list, DELETE this whole line. \address{}{}{} fails
 % with "There's no line here to end" on every moderncv version.
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+% Singapore convention: city only, no street address.
+\address{Singapore}{}{}
+\phone[mobile]{+65 9XXX XXXX}
+\email{raymond.chia@example.com}
+% No GitHub on purpose: this persona is explicitly not a programmer.
+\extrainfo{\href{https://www.linkedin.com/in/raymond-chia-kok-leong}{LinkedIn}}
 
 \begin{document}
 
@@ -67,7 +69,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Commercial and sales operations leader with 24 years in APAC B2B distribution. Ran sales forecasting and pipeline governance across six markets and a team of 40, cutting forecast variance from 18\% to 7\% over three years and leading the region's CRM migration to Salesforce. Now applying generative AI to lead triage, proposal drafting and pricing analysis, with the measurement discipline to show what changed.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -77,15 +79,19 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Sales Operations \& Forecasting}: multi-market forecast ownership, pipeline governance, variance reduction, S\&OP input.
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Commercial Excellence}: process design, KPI definition, monthly commercial reporting, cross-market standardisation.
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Key Account Management}: contract negotiation, rebate structures, account planning, an eight-year book of 12 accounts.
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{CRM \& Systems}: Salesforce migration leadership and administration, pipeline data hygiene, adoption across six markets.
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Commercial Analytics}: Excel and Power BI dashboards, variance analysis, market-level reporting for regional leadership.
+
+\item \textbf{Applied Generative AI}: lead scoring, proposal drafting, account review and pricing analysis using ChatGPT, Microsoft Copilot and NotebookLM.
+
+\item \textbf{Stakeholder Management}: regional leadership alignment and cross-functional coordination across six APAC markets.
 
 \end{itemize}
 
@@ -97,32 +103,30 @@
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2017-2026}{Regional Sales Operations Manager, APAC}{Norvane Consumer Products (Asia Pacific) Pte Ltd}{Singapore}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1 - be specific, use numbers where possible]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
-    \item {[Achievement or responsibility 4]}
+    \item {Ran sales forecasting and pipeline reviews across six APAC markets, leading a cross-market team of 40.}
+    \item {Cut forecast variance from 18\% to 7\% over three years by standardising pipeline definitions and rebuilding the monthly review cadence.}
+    \item {Built the monthly commercial dashboard in Excel and Power BI, giving regional leadership market-level visibility of variance.}
+    \item {Led the region's CRM migration from a legacy system to Salesforce in 2021, sequencing rollout by market to drive adoption.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2009-2017}{Key Account Manager, then Senior Key Account Manager}{Brightwell Industrial Supplies Pte Ltd}{Singapore}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
-    \item {[Achievement or responsibility 3]}
+    \item {Managed 12 key accounts worth SGD 28 million in annual revenue.}
+    \item {Negotiated annual contracts and rebate structures, aligning volume commitments to realistic forecasts.}
+    \item {Promoted to Senior Key Account Manager in 2013.}
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% NOTE: the source document carries no achievement bullets for this role. Only the
+% titles and territories below are sourced; add real content before relying on it.
+\item{\cventry{2002-2009}{Sales Executive, then Area Sales Manager}{Halcyon Distribution (S) Pte Ltd}{Singapore and Malaysia}{}{\vspace{1pt}
 \begin{itemize}
-    \item {[Achievement or responsibility 1]}
-    \item {[Achievement or responsibility 2]}
+    \item {Progressed from Sales Executive to Area Sales Manager across the Singapore and Malaysia territories.}
 \end{itemize}}}
 
 \end{itemize}
@@ -135,16 +139,46 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{2026-2027}{Advanced Certificate in Generative AI for Business Growth \& Innovation}{SMU Academy}{Singapore}{}{\vspace{1pt}
+In progress, expected 2027. Capstone: AI-assisted lead scoring and proposal drafting for a mid-size B2B firm.
 }}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{2008-2010}{Master of Business Administration}{University of South Australia}{Singapore}{}{\vspace{1pt}
+Part-time, delivered through a Singapore campus partner.
 }}
 
+\vspace{3pt}
+
+\item{\cventry{1998-2001}{Bachelor of Business (Marketing)}{Nanyang Technological University}{Singapore}{}{}}
+
+\end{itemize}
+
+% ============================================================
+%     APPLIED AI & PROFESSIONAL DEVELOPMENT
+% ============================================================
+
+\section{Applied AI \& Professional Development}
+\vspace{1pt}
+\begin{itemize}
+
+\item \textbf{Lead scoring with generative AI (SMU Academy, 2026)}: scored 200 leads against a defined rubric using ChatGPT and a synthetic dataset, reducing a task that took a working day to roughly 40 minutes. Accuracy validation against realised outcomes is the next step.
+
+\item \textbf{Capstone, AI-assisted lead scoring and proposal drafting}: designing a commercial workflow for a mid-size B2B firm, covering lead triage, proposal drafting and pricing analysis.
+
+\item \textbf{Toolset in active use}: ChatGPT, Microsoft Copilot, NotebookLM, Canva AI.
+
+\end{itemize}
+
+% ============================================================
+%     CERTIFICATIONS
+% ============================================================
+
+\section{Certifications}
+\vspace{1pt}
+\begin{itemize}
+\item {Microsoft Power BI Data Analyst (PL-300), 2022. Salesforce Certified Administrator, 2021. Google Analytics Certification, 2024.}
 \end{itemize}
 
 % ============================================================
@@ -154,27 +188,7 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item {[Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).}
-\end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item {[Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item {English (native).}
 \end{itemize}
 
 % ============================================================

@@ -1,7 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Raymond Chia Kok Leong
 
 <!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+<!-- Populated 2026-10-20 from documents/Raymond_Chia_LinkedIn_CV.pdf -->
+<!-- ⚠️ SANDBOX PERSONA. The source CV is a fictitious training persona (SMU Academy GenAI
+     Cohort 2): the person, companies and photo are invented. Contact details below are
+     placeholders. Run /reset to blank this file before setting up a real profile. -->
 
 ## Role
 This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
@@ -11,81 +14,137 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 4. **Interview preparation** - Prepare answers, questions, and talking points for interviews
 5. **Career strategy** - Advise on positioning and personal branding
 
+## Market: Singapore
+
+<!-- LOCALISED for Singapore. This block is the single place the market is declared;
+     the skill files assume it. Re-run /setup if the candidate's market changes. -->
+
+- **Country / city:** Singapore. The whole island is the commute radius — judge postings
+  by door-to-door time, not distance.
+- **Currency:** SGD, quoted **per month, gross**, which is how Singapore postings and
+  candidates read salary. Employer CPF (~17%) and AWS/13th month are separate.
+- **Working language:** English. Documents are written in British English
+  (`organisation`, `programme`, `analyse`, `centre`).
+- **CV length:** exactly 2 pages for anyone past graduate level. 1 page only for fresh graduates.
+
+### Work pass context
+
+The eligibility gate in `.claude/skills/job-application-assistant/04-job-evaluation.md`
+holds the detail. In short: Employment Pass needs a minimum monthly salary of S$5,600
+(S$6,000 from 1 Jan 2027; S$6,200 / S$6,600 in financial services), scaled up with age,
+plus 40 COMPASS points. S Pass sits at S$3,300. Citizens and PRs need no pass.
+
+Never score or draft an application that fails that gate — report the failure with the
+quoted posting wording instead.
+
+### Job portals
+
+| Portal | Skill | Status |
+|---|---|---|
+| MyCareersFuture (WSG, government) | `mycareersfuture-search` | **Primary.** Declared salary, posting and expiry dates, full description |
+| LinkedIn | `linkedin-search` | Enabled — pass `-l "Singapore"` |
+| freehire.me (tech) | `freehire-search` | Enabled — pass `--country SG` |
+| JobStreet Singapore | `jobstreet-search` | **Disabled by default** — its robots.txt disallows the search API. See that skill's access notice before enabling. |
+| Indeed SG, Glints, NodeFlair, Careers@Gov | none | WebSearch `site:` fallback, configured in `search-queries.md` |
+
+### Document conventions
+
+`.claude/skills/job-application-assistant/05-cv-templates.md` and `06-cover-letter-templates.md`
+carry the Singapore rules in full. The ones most often got wrong:
+
+- **No photo, date of birth, age, marital status, nationality, religion or NRIC** on either
+  document — TAFEP fair-employment guidelines and PDPA both point this way.
+- **No full home address.** `Singapore` is enough; always include a `+65` mobile.
+- **Work-pass status** is worth one factual line where it helps (citizen/PR/EP holder), or
+  a sponsorship request in the profile statement if a pass is needed.
+
 ## Candidate Profile
 
 <!-- This section is auto-populated by /setup. You can also fill it in manually. -->
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Raymond Chia Kok Leong
+- **Location:** Singapore (no fixed home area recorded — location tiers are island-wide)
+- **Phone:** +65 9XXX XXXX *(placeholder)*
+- **Email:** raymond.chia@example.com *(placeholder)*
+- **LinkedIn:** https://www.linkedin.com/in/raymond-chia-kok-leong *(placeholder)*
+- **Work pass:** Singapore Citizen
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | English | Native |
+  <!-- The source CV lists no Languages section, so only English is declared. Any other
+  language this persona speaks is unrecorded - confirm before relying on the Language
+  Gate, because an undeclared language is a hard exclusion in 04-job-evaluation.md. -->
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Made redundant May 2026 (APAC restructuring); studying full-time (SMU Academy GenAI certificate, 2026-2027); available immediately
+- **LinkedIn headline:** "Commercial and sales operations leader | 24 years in APAC B2B sales | Applying generative AI to pipeline and pricing work"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+<!-- Most recent first. In-progress qualification states its completion explicitly. -->
+- **Advanced Certificate in Generative AI for Business Growth & Innovation** (2026-2027) - SMU Academy
+  - In progress, expected 2027
+  - Capstone: AI-assisted lead scoring and proposal drafting for a mid-size B2B firm (MapleTech scenario)
+- **Master of Business Administration** (2008-2010) - University of South Australia (part-time, Singapore campus partner)
+- **Bachelor of Business (Marketing)** (1998-2001) - Nanyang Technological University
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Regional Sales Operations Manager, APAC** (Mar 2017 - May 2026) - **Norvane Consumer Products (Asia Pacific) Pte Ltd** (Singapore)
+  - Ran sales forecasting and pipeline reviews across 6 markets with a team of 40
+  - Built the monthly commercial dashboard in Excel and Power BI
+  - Cut forecast variance from 18% to 7% over three years
+  - Led the CRM migration from a legacy system to Salesforce in 2021
+  - Role made redundant in the APAC restructuring, May 2026
+- **Key Account Manager, then Senior Key Account Manager** (Jul 2009 - Feb 2017) - **Brightwell Industrial Supplies Pte Ltd** (Singapore)
+  - Managed 12 key accounts worth SGD 28 million a year
+  - Negotiated annual contracts and rebate structures
+  - Promoted to Senior KAM in 2013
+- **Sales Executive, then Area Sales Manager** (Jan 2002 - Jun 2009) - **Halcyon Distribution (S) Pte Ltd** (Singapore and Malaysia)
+  - No achievement bullets in the source document — needs completion before this role is used on a CV
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Sales operations, forecasting and pipeline management, key account management
+- **Secondary:** Commercial analytics (Excel, Power BI), CRM administration (Salesforce)
+- **Domain:** APAC B2B distribution and consumer goods; commercial governance, rebate structures, forecast accuracy
+- **Software:** Salesforce, Power BI, Excel, ChatGPT, Microsoft Copilot, Canva AI, NotebookLM
+- **Explicitly not claimed:** no programming languages. The persona states "I am not a programmer" — do not put code, ML frameworks or engineering tooling on the CV.
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Microsoft Power BI Data Analyst (PL-300)** - completed 2022
+- **Salesforce Certified Administrator** - completed 2021
+- **Google Analytics Certification** - completed 2024
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+<!-- None in the source document -->
+- None
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+<!-- None in the source document -->
+- None recorded
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- Inferred from the CV's About section and Activity post — see 02-behavioral-profile.md -->
+- **Evidence-first** - "I want to use these tools well, measure the result, and show the numbers to a hiring manager"
+- **Pragmatic operator, not a builder** - "I am not a programmer"; values applied results over technical depth
+- **Strengths:** commercial process design, making informal pipeline work measurable, cross-market stakeholder alignment
+- **Growth areas:** hands-on technical depth (framed as deliberate specialisation, not a gap); no formal people-leadership title above team-of-40 functional oversight
+- **Thrives in:** structured commercial environments with a measurable number to move; organisations willing to change a process rather than defend it
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Turning a forecast that does not convert into one that does — the diagnostic work, not the reporting
+- Applied generative AI in commercial operations: lead triage, proposal drafting, account reviews, pricing analysis
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- **Consumer goods and FMCG distribution**: regional commercial operations, trade marketing operations
+- **Industrial distribution and B2B supplies**: commercial excellence, sales operations
+- **Adjacent (pivot)**: SaaS and technology commercial operations, professional services firms adopting GenAI in sales
 
 ### Deal-breakers
 <!-- Hard constraints on job search. Language requirements are handled separately and
 automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Roles that require hands-on software engineering or programming — the persona explicitly is not a programmer
+- Relocation outside Singapore — not stated as available; confirm before treating it as absolute
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

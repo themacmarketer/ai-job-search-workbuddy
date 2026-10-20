@@ -8,27 +8,81 @@ framework_version: 1.2.6
 
 ## Eligibility Gate — run before scoring
 
-If the candidate is not a citizen or permanent resident of the country they are applying in, run this first. It is a hard filter, not a scoring dimension, and it is separate from work-permit *timing*: timing asks "can they work the required hours yet?", eligibility asks "are they permitted to hold this job at all?". A candidate can pass timing and still be categorically excluded.
+<!-- LOCALISED: Singapore (work passes). Verified against MOM on 2026-10-20. -->
 
-Read the posting's eligibility / work rights / "who can apply" section **verbatim** and classify:
+Singapore gates most professional jobs behind a **work pass**, and the gate is not just
+"will they sponsor me" — it is a salary floor, a points test, and a quota, any one of
+which can end an application before a human reads it. Run this before scoring anything.
+
+### Step 1: What is the candidate's status?
+
+Establish this once, from `CLAUDE.md` / `01-candidate-profile.md`, and record it there:
+
+| Status | What it means for this gate |
+|---|---|
+| **Singapore Citizen / PR** | No pass needed. Skip to Step 3 (the employer's stated preference still applies). |
+| **Employment Pass (EP) holder** | Already eligible to work; a new employer must still apply for a *new* EP unless transferring. Salary floor and COMPASS apply to the new application. |
+| **S Pass / Work Permit holder** | Tied to the employer and sector; changing employer means a fresh application and the quota applies. |
+| **Dependant's Pass / LTVP / student pass** | Needs a work pass (or a Letter of Consent for some DP/LTVP holders) before starting. Do not assume the right to work. |
+| **Overseas / needs sponsorship** | The full gate below applies. |
+
+### Step 2: The salary floor is a hard gate, not a negotiation
+
+If the posting's salary range **cannot reach** the pass threshold, the application fails
+regardless of fit or COMPASS score. Check the posting's declared range against:
+
+| Pass | Minimum qualifying monthly salary | Notes |
+|---|---|---|
+| **Employment Pass** (all sectors except financial services) | **S$5,600** today; **S$6,000 from 1 Jan 2027** | Rises with candidate age: ~S$7,223 at 30, ~S$8,382 at 35, ~S$9,541 at 40, **S$10,700** at 45+ (S$11,500 from 2027) |
+| **Employment Pass** (financial services) | **S$6,200** today; **S$6,600 from 1 Jan 2027** | Age-scaled to **S$11,800** (S$12,700 from 2027) at 45+ |
+| **S Pass** | **S$3,300** (S$3,800 financial services) | Sector-dependent, quota-limited, levy payable |
+| **ONE Pass** | S$30,000 | For top talent; no job offer needed |
+
+Two things make this easy to get wrong:
+
+1. **The threshold is age-scaled.** A 45-year-old needs roughly double the headline
+   figure. Use the candidate's age, not the base number.
+2. **The threshold moves on 1 January 2027**, ten weeks after this file was written. A
+   posting offering S$5,800 today fails an EP application lodged in 2027. When a range
+   sits between the current and the announced threshold, say so explicitly rather than
+   scoring it as a clean pass.
+
+A posting that discloses no salary is **unverified**, not automatically failing — but for
+an EP-dependent candidate it is a real risk, because the employer may simply be unable to
+meet the floor.
+
+### Step 3: Read the posting's work-rights wording verbatim
 
 | Posting wording | Verdict |
-|-----------------|---------|
-| Names a **citizenship or permanent-residency requirement** ("must be a citizen of X", "permanent resident", "PR required", "full working rights" where the employer means citizen/PR) | **FAIL — hard stop.** Do not score, do not draft. Quote the exact wording back to the user. |
-| Requires a **security clearance** at any level | **FAIL** in most countries, since clearance is normally gated on citizenship. Verify the specific scheme rather than assuming. |
-| **Explicitly names** the candidate's permit class, or says "international applicants welcome", "visa holders considered", "we sponsor" | **PASS** — verified acceptance. Worth noting as a positive in the application. |
-| **Silent** on citizenship or residency | **PROCEED, but mark unverified.** Check the employer's own careers or international-applicant page before drafting. |
+|---|---|
+| "Singaporeans / Singapore Citizens only", "PRs only", "must be a Singapore Citizen or PR" | **FAIL — hard stop.** Quote the exact wording back. |
+| "No quota for foreign workers", "we are unable to sponsor work passes", "local candidates preferred" | **FAIL** for a candidate needing a pass. |
+| "We are open to sponsoring an Employment Pass", "EP sponsorship available", "visa sponsorship provided" | **PASS — verified acceptance.** Worth naming as a positive in the application. |
+| Silent on work rights | **PROCEED, but mark unverified.** Check the employer's careers page. Silence is common and often means "we will if we can". |
 
-**Two rules that are easy to get wrong:**
+**The Singapore-specific asymmetry worth knowing:** the Fair Consideration Framework
+requires employers to advertise EP/S Pass roles on MyCareersFuture for at least 14
+consecutive days before applying. So a live MCF posting from an employer that hires
+foreign talent is a weak positive signal, not a negative one — it is where those roles
+are *required* to appear. Do not read "advertised on MCF" as "locals only".
 
-1. **Silence is not permission.** Large graduate programs frequently gate eligibility on their own website rather than in the job ad. Highest-risk categories: professional-services firms, government and defence, banking, telecommunications, and anything touching critical infrastructure.
-2. **A company-wide "we accept international applicants" statement is not role-level permission.** The common pattern is a general welcome followed by a *named list* of the specific programs or service lines it covers. Confirm the **specific posting or stream** appears on that list before drafting.
+### Step 4: COMPASS, for EP candidates only
 
-**Report an eligibility failure to the user with the quoted source** rather than silently dropping the role. They may know something about their own status that the profile does not record.
+An EP application also needs **40 points** on COMPASS (salary, qualifications, diversity,
+support for local employment, skills bonus, strategic economic priorities). The candidate
+cannot control most of it — the employer's profile drives it — so do not score it, but do
+flag the two things that are visible from the posting:
 
-If the candidate's permit also constrains *hours* or *start date* (a student visa with a term-time cap, a permit that begins on graduation), record that as a second gate under this section during `/setup`, with the specific dates. Do not merge it with the eligibility question above — they fail for different reasons and need different answers.
+- A **very small employer** (< 25 PMET staff) is exempt from the diversity and local
+  employment criteria, which usually helps.
+- A fixed monthly salary of **S$22,500+** exempts the candidate from COMPASS entirely.
 
-A role that fails this gate is not scored and not drafted. Everything below applies only to roles that pass it.
+Do not attempt a COMPASS score from a job ad. It is an employer-side calculation.
+
+**Report an eligibility failure to the user with the quoted source** rather than silently
+dropping the role. They may hold a pass the profile does not record, or know the employer
+sponsors in practice.
+
 
 ## Language Gate — run before scoring
 
@@ -60,9 +114,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** sales operations, forecasting and pipeline governance, commercial process design, key account management, CRM rollout (Salesforce), commercial reporting (Excel, Power BI)
+**Moderate match areas:** commercial excellence programme design, trade marketing operations, applied GenAI in sales workflows (lead triage, proposal drafting), regional/APAC stakeholder management
+**Weak match areas:** programming and data engineering (explicitly not a programmer), hands-on statistical modelling, direct B2B quota carrying, marketing technology and SEO
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -74,9 +128,9 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** multi-market sales operations in consumer goods and industrial distribution; forecast ownership; CRM migration and adoption; key account and rebate negotiation
+**Moderate:** commercial excellence and revenue operations in adjacent sectors (technology, logistics, professional services); GenAI tooling adoption in commercial teams
+**Entry-level:** no experience — 24 continuous years, three employers. Do not stretch into engineering, data science or pure marketing roles.
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -91,10 +145,30 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
-- Frequent international travel: FLAG (discuss with user)
+
+<!-- LOCALISED: Singapore. The island is ~50 km east to west, so almost nowhere is
+     uncommutable — the real question is door-to-door time, not distance. -->
+
+Singapore has no "too far to consider" in the way a large country does. Judge by
+**door-to-door time on the MRT/bus at the hours the candidate would travel**, and be
+specific rather than qualitative:
+
+- **Within ~45 min door-to-door:** PASS.
+- **45–60 min:** PASS with a note — sustainable for many people, worth the candidate's own call.
+- **Over 60 min each way:** FLAG. Not a fail, but say the number.
+- **"Islandwide"** in a posting means no fixed work location (multiple sites, or a
+  field/regional role). Treat as PASS but note the travel requirement — it often means
+  client sites, and sometimes a vehicle or allowance question.
+- **Remote / hybrid:** PASS. Singapore's default is hybrid (typically 3 days in office);
+  fully remote roles exist but are a minority, and some employers restrict them to
+  citizens/PRs for tax reasons.
+- **Requires relocation to another country:** FAIL unless the candidate has said otherwise.
+- **Regional travel** (covering SEA, APAC) is common in Singapore HQ roles: FLAG, and
+  check whether it is occasional or a standing expectation.
+
+Use the posting's own location text where available: MCF gives a building, street, URA
+planning district and region, and a postal code; JobStreet gives a locality label
+(`Macpherson, Central Region`). A postal code is the most reliable thing to map.
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
@@ -107,30 +181,61 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Sales Operations Manager or Commercial Excellence Lead in a Singapore-based regional or APAC role — the same operating layer he has run, at a company that wants it rebuilt rather than inherited
+- An AI Adoption Lead (Commercial) role, applying generative AI to pipeline, pricing and proposal work with measurable outcomes rather than pilots
+- Stay in Singapore; build toward a commercial-operations leadership position rather than moving into pure engineering or data science
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: diagnosing why a pipeline does not convert; redesigning a forecast cadence; building the dashboard that makes a problem visible; rolling a tool out and proving it changed a number
+- Tasks that drain: producing reports nobody acts on; defending an existing process; administering a CRM without authority to change it
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Redundant May 2026, currently studying. Available immediately — the search is time-boxed by the course finishing in 2027, so a role that starts soon beats a better one that starts late.
+- **Flexibility**: Studying toward the SMU Academy certificate through 2027. Predictable hours fit better than frequent regional travel during term.
+- **Professional development**: The GenAI pivot is the point, not a side interest. A role that applies it commercially is worth more than a higher-paying one that does not.
 
 ### 6. Salary Benchmark (Optional)
 
-If the salary lookup tool is configured (`salary_data.json` exists), look up the company:
+<!-- LOCALISED: Singapore. English is the working language of almost every posting, so
+     the Language Gate rarely bites here — but it does for roles that require Mandarin,
+     Malay or Tamil for client-facing work, and for roles that specify "business-level
+     Mandarin" to serve mainland or China-market clients. -->
+
+#### Method A: live market data from MyCareersFuture (preferred in Singapore)
+
+Singapore is unusually well served here: every MCF posting declares a monthly gross SGD
+range, so a real benchmark can be built from live postings rather than a stale export.
+
+```bash
+bun run .agents/skills/mycareersfuture-search/cli/src/cli.ts search \
+  -q "<role title>" --jobage 30 --limit 100 --format json
 ```
+
+Then compute, from the `salaryMin`/`salaryMax` fields:
+
+| Metric | How |
+|---|---|
+| Sample size | Count of postings that disclose a range. State it — 6 postings is an anecdote, not a benchmark. |
+| Median of the **midpoint** of each range | `median((min+max)/2)`. More robust than averaging minima. |
+| Interquartile range | p25–p75 of the midpoints. This is the honest "market range". |
+| Annualised equivalent | `monthly × 12`, and separately `monthly × 13` for the AWS/13th-month convention common in Singapore. **Say which you used.** |
+
+Report the sample size and the date the data was pulled. Do not present a benchmark from
+fewer than ~8 disclosing postings without saying so.
+
+#### Method B: a user-supplied dataset
+
+If `salary_data.json` exists, look up the company:
+
+```bash
 python salary_lookup.py "<Company Name>" --json
 ```
 
 If a city is known from the posting, add `--city "<City>"` to narrow results.
 
 Present findings as:
+
 ```
 ### Salary Benchmark
 | Metric | Value |
@@ -139,9 +244,23 @@ Present findings as:
 | Overall index | XX.X (+/-X.X% vs baseline) |
 ```
 
-Interpret results relative to the baseline defined in the data file's metadata. For index-based data, higher typically means above-market compensation.
+Interpret results relative to the baseline defined in the data file's metadata. For
+index-based data, higher typically means above-market compensation.
 
-If the salary tool is not configured, skip this section.
+#### Singapore conventions to state explicitly
+
+- **Currency is SGD, and figures are monthly gross** unless the posting says otherwise.
+  Never silently convert to annual — Singapore job seekers read monthly.
+- **Gross excludes employer CPF contributions.** For citizens/PRs, employer CPF adds
+  ~17% on top of gross for most of the salary band; it is not part of the quoted figure.
+- **AWS / 13th month** is common but not universal. A S$6,000 × 13 package is
+  S$78,000/year, not S$72,000.
+- **Variable bonus** is frequently 1–3 months and should be described separately, never
+  folded into a base comparison.
+- When the candidate is asked for "expected salary", the number to give is the **monthly
+  gross base**, not total comp. See `08-application-forms.md`.
+
+If neither method has data, skip this section rather than inventing a range.
 
 ## Output Format
 
@@ -173,9 +292,12 @@ Present the evaluation as:
 
 ### Company Research Checklist
 - [ ] Checked company website (mission, values, recent news)
-- [ ] Checked review sites (Glassdoor, Jobindex, etc.)
+- [ ] Checked review sites (Glassdoor, Indeed Singapore company reviews)
+- [ ] Checked the MyCareersFuture company page (UEN, SSIC industry code, employee count, other open roles)
+- [ ] Checked ACRA / Bizfile for entity age and status where the company is unfamiliar
 - [ ] Checked LinkedIn for team size, recent hires, connections
 - [ ] Checked media for restructuring, growth, or workplace issues
+- [ ] For an EP-dependent candidate: checked whether the employer visibly hires foreign talent
 - [ ] Identified network contacts who may know the team/manager
 ```
 

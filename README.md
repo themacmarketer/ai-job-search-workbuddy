@@ -2,17 +2,122 @@
   <img src="assets/mascot/pip_flight_loop.gif" alt="Pip, the courier bird" width="200">
 </p>
 
-# AI Job Search
+# AI Job Search — WorkBuddy, Singapore edition
 
 *The job search that runs on your machine.*
 
-<p align="center">
-  <a href="https://trendshift.io/repositories/43622?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-43622" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/43622/daily" alt="MadsLorentzen%2Fai-job-search | Trendshift" width="250" height="55"/></a>
-</p>
+A Singapore-localised fork of [MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search)
+(MIT), packaged to run under **[WorkBuddy](https://www.workbuddy.ai)** as well as Claude Code.
 
-[![CI](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml/badge.svg)](https://github.com/MadsLorentzen/ai-job-search/actions/workflows/ci.yml)
+Job portals, work-pass eligibility, salary conventions, CV and cover-letter norms, and the
+application-form fields are all adapted for the Singapore market. Two portal CLIs were built
+for it: **MyCareersFuture** (primary) and **JobStreet** (ships disabled — see its access notice).
 
-An AI-powered job application framework built on [Claude Code](https://claude.com/claude-code). Fork it, fill in your profile, and let Claude evaluate job postings, tailor your CV, write cover letters, and prepare you for interviews.
+---
+
+## Quickstart (WorkBuddy)
+
+**You need:** the WorkBuddy desktop app, and [`bun`](https://bun.sh) on your `PATH`
+(`curl -fsSL https://bun.sh/install | bash`). LaTeX is optional — needed only to compile
+CVs and cover letters as PDFs; see [LaTeX setup](#latex-optional) below.
+
+```bash
+git clone https://github.com/themacmarketer/ai-job-search-workbuddy.git
+cd ai-job-search-workbuddy
+```
+
+1. **Open the folder in WorkBuddy.** Use "Open Folder" and pick `ai-job-search-workbuddy`.
+2. **Restart WorkBuddy.** Skills are read at session start, so a folder that was already
+   open when you cloned will not show them.
+3. **Type `/setup`.** It will be in the slash-command list.
+
+That is the whole install. The 14 workflow commands live in `.workbuddy-ai/skills/` and are
+discovered automatically from the project — no plugin install, no marketplace, no config.
+There is also a mirror in `~/.workbuddy-ai/skills/` if you prefer them available globally;
+the loader dedupes by name, so having both is harmless.
+
+### Try it without entering your own data
+
+The repo ships a **fictitious sample persona**, Raymond Chia, so you can see the whole
+pipeline work before putting anything real into it:
+
+```bash
+/scrape      # searches MyCareersFuture, LinkedIn and freehire for his target roles
+/rank        # batch-scores the results
+/apply       # drafts a tailored CV + cover letter for one of them
+```
+
+The sample CV is `documents/cv/Raymond_Chia_CV.pdf` — a training persona created for an SMU
+Academy GenAI cohort. The person, employers and photo are invented, the phone number is
+redacted and the email uses `example.com`. When you are ready to use your own details, run
+`/reset` (it asks you to type `RESET`) and then `/setup` again.
+
+### Commands
+
+| Command | What it does |
+|---|---|
+| `/setup` | Profile onboarding — reads a CV or interviews you |
+| `/scrape` | Searches every enabled Singapore portal |
+| `/rank` | Batch-scores new postings into a shortlist |
+| `/apply` | Full drafter-reviewer pipeline for one posting |
+| `/interview` | Stage-specific interview pack |
+| `/outcome` | Records a result, archives materials |
+| `/expand` | Enriches the profile from public sources |
+| `/upskill` | Skill-gap heatmap and learning plan |
+| `/html-report` | Offline HTML dashboard of your funnel |
+| `/add-portal` | Scaffolds a search CLI for another job board |
+| `/add-template` | Registers your own CV/cover-letter template |
+| `/reset` | Wipes profile data |
+| `/notion-sync`, `/gmail-sync` | Optional integrations |
+
+Full detail: **[`LOCALISATION-SG.md`](LOCALISATION-SG.md)**.
+
+---
+
+## What is different from upstream
+
+| Area | Change |
+|---|---|
+| **Portal CLIs** | `mycareersfuture-search` (new, 71 tests) and `jobstreet-search` (new, 34 tests, disabled by default — its robots.txt disallows the search API) |
+| **WorkBuddy port** | All 14 commands rendered as WorkBuddy skills by `tools/sync_workbuddy_skills.py`, with `--check` to prevent drift |
+| **Work-pass gate** | EP/S Pass salary floors, age scaling, COMPASS and the Fair Consideration Framework |
+| **Documents** | No photo/DOB/NRIC (TAFEP + PDPA), British English, monthly gross SGD |
+| **Salary** | Live MyCareersFuture benchmark method instead of a static dataset |
+| **Search strategy** | Singapore employment clusters, commute by minutes, English-only query scope |
+
+`LOCALISATION-SG.md` documents each of these with the evidence behind it, and section 7
+explains exactly what the WorkBuddy port does and does not preserve.
+
+## Keeping the two views in sync
+
+`.claude/commands/*.md` is the source of truth; `.workbuddy-ai/skills/` is generated.
+
+```bash
+python3 tools/sync_workbuddy_skills.py            # regenerate
+python3 tools/sync_workbuddy_skills.py --check    # fail if stale (good CI step)
+```
+
+Never hand-edit the generated skills.
+
+## LaTeX (optional)
+
+Needed only to compile PDFs. On macOS:
+
+```bash
+curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"   # add to ~/.zshrc
+```
+
+Verify with `python3 tools/verify_pdf.py cv/main_example.pdf` after compiling.
+
+---
+
+## About upstream
+
+The framework, workflow design and everything that makes this useful are Mads Lorentzen's
+work. This fork adds the Singapore market layer and the WorkBuddy packaging on top; upstream
+is MIT-licensed and the original `LICENSE` is unchanged. Upstream's own documentation
+follows below and remains accurate for the parts this fork did not touch.
 
 > Note: This is an independent open-source project and is not affiliated with, endorsed by, sponsored by, or maintained by Anthropic. Anthropic and Claude Code are referenced only to describe the toolchain this workflow uses.
 >
