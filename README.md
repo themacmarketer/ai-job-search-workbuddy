@@ -125,9 +125,9 @@ follows below and remains accurate for the parts this fork did not touch.
 
 ## Does it actually work?
 
-I'm a geophysicist by training. When my position was cut in late 2025, I built this framework to run my own job search - the same `/scrape`, `/apply`, and `/interview` workflow in this repo, used weekly, on my own career. I was upfront about it with every employer I spoke to, and instead of counting against me, it usually sparked a genuine technical conversation.
+Mads Lorentzen is a geophysicist by training. When his position was cut in late 2025, he built this framework to run his own job search — the same `/scrape`, `/apply`, and `/interview` workflow in this repo, used weekly, on his own career. He was upfront about it with every employer he spoke to, and instead of counting against him, it usually sparked a genuine technical conversation.
 
-Sixty-nine tailored applications, twenty first interviews, and one signed contract later, I started as an AI engineer in June 2026. People kept asking whether this actually works. It got me hired. Now it's yours.
+Sixty-nine tailored applications, twenty first interviews, and one signed contract later, he started as an AI engineer in June 2026. People kept asking whether this actually works. It got him hired. Now it's yours.
 
 *The longer version, including the full application funnel, is on [LinkedIn](https://www.linkedin.com/in/mads-lorentzen/).*
 
